@@ -178,7 +178,7 @@ body::after {
 .box .top .container span:nth-child(1){
     
     height: 75%;
-    background-image: url(container1.png);
+    background-image: url(container.png);
     background-color: #dbc49b;
     background-size: cover;
     background-position: center;
