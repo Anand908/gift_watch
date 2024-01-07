@@ -39,7 +39,7 @@ body::after {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 650px;
+    height: 610px;
     width: 900px;
     border-radius: 10px;
     backdrop-filter: blur(10px);
