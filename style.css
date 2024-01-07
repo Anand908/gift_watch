@@ -1,0 +1,250 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    background-position: top;
+    background: #003;
+}
+body::before{
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: linear-gradient(135deg, #00e1ff,rgb(255, 141, 47));
+    border-radius: 50%;
+    top: -100px;
+    left: 200px;
+}
+body::after {
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: linear-gradient(135deg, #ff00bf, rgb(241, 14, 14));
+    border-radius: 50%;
+    bottom: -100px;
+    right: 200px;
+}
+.box{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 650px;
+    width: 900px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    background: rgba(255,255,255,0.05);
+    box-shadow: 0 15px 35px rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.5);
+    /* border-left: 1px solid rgba(255,255,255,0.5); */
+    z-index: 10;
+    transform-style: preserve-3d;
+    /* animation: animate 8s linear infinite; */
+}
+.box .top{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 1rem;
+    transform-style: preserve-3d;
+    animation: animate 8s linear infinite;
+}
+.box .top .clock{
+    position: relative;
+    transform-style: preserve-3d;
+    /* transform: rotateY(-15deg); */
+}
+.box .top .circle{
+    position: relative;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    backdrop-filter: blur(100px);
+    background: #dbc49b;
+    border: 3px solid #643509;
+    box-shadow: 0 15px 35px rgba(255,255,255,0.05),
+        inset 0 0 50px #643509;
+    transform-style: preserve-3d;
+}
+.box .top .circle::before{
+    content: '';
+    position: absolute;
+    top: calc(50% - 7px);
+    left: calc(50% - 7px);
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: red;
+    z-index: 10;
+}
+.box .top .clock .back{
+    position: absolute;
+    bottom: 0;
+    left: 2%;
+    height: 50%;
+    width: 96%;
+    background: #dbc49b;
+    box-shadow: 0 15px 35px rgba(255, 255, 255, 0.05),
+                inset 0 0 50px #643509;
+    border: 3px solid #643509;
+}
+.box .top .clock .glass{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    transform: translateZ(40px);
+    backdrop-filter: blur(0.5px);
+    border: 1px solid #fff;
+}
+.box .top .circle span{
+    position: absolute;
+    inset: 20px;
+    border-radius: 50%;
+    rotate: calc(30deg * var(--i));
+}
+.box .top .circle span::before{
+    content: '';
+    position: absolute;
+    left: calc(50% - 3px);
+    top: 0;
+    width: 6px;
+    height: 50px;
+    border: 1px solid #643509;
+}
+.box .top .circle .ss{
+    inset: 80px;
+}
+.box .top .circle .mm{
+    inset: 110px;
+}
+.box .top .circle .hh{
+    inset: 130px;
+}
+.box .top .circle .ss::before{
+    background: #f00;
+    top: 0;
+    left: calc(50% - 3px);
+    width: 6px;
+    height: 65%;
+    border-radius: 10px;
+    border: none;
+}
+.box .top .circle .mm::before{
+    background: #000;
+    top: 0;
+    left: calc(50% - 4px);
+    width: 8px;
+    height: 50%;
+    border-radius: 10px 10px 0 0;
+    border: none;
+}
+.box .top .circle .hh::before{
+    background: #000;
+    top: 0;
+    left: calc(50% - 6px);
+    width: 12px;
+    height: 50%;
+    border-radius: 10px 10px 0 0;
+    border: none;
+}
+.box .top .container {
+    position: relative;
+    width: 250px;
+    height: 85%;
+    transform-style: preserve-3d;
+    /* transform: rotateY(-15deg); */
+}
+.box .top .container span {
+    position: absolute;
+    width: calc(100% / var(--w));
+    background: #dbc49b;
+    border: 2px solid #643509;
+    box-shadow: inset 0 0 35px #643509;
+}
+.box .top .container span:nth-child(1){
+    
+    height: 75%;
+    background-image: url(container1.png);
+    background-color: #dbc49b;
+    background-size: cover;
+    background-position: center;
+    background-size: 80% 100%;
+    background-repeat: no-repeat;
+    transform: rotateY(calc(90deg * var(--i))) translateY(85px) translateZ(63px);
+}
+.box .top .container span:nth-child(2){
+    
+    height: 100%;
+    border-radius: 100% 0% 0% 0% / 25% 27% 10% 10%;
+    transform: rotateY(calc(90deg * var(--i))) translateZ(188px);
+}
+.box .top .container span:nth-child(3){
+    
+    height: 100%;
+    transform: rotateY(calc(90deg * var(--i))) translateZ(63px);
+}
+.box .top .container span:nth-child(4){
+    height: 100%;
+    border-radius: 10% 100% 0% 0% / 0% 25% 10% 10%;
+    transform: rotateY(calc(90deg * var(--i))) translateZ(63px);
+}
+.box .bottom {
+    position: relative;
+    width: 695px;
+    height: 160px;
+    transform-style: preserve-3d;
+    animation: animate 8s linear infinite;
+}
+.box .bottom span{
+    position: absolute;
+    background: #dbc49b;
+    border: 5px solid #643509;
+    box-shadow: inset 0 0 35px #643509;
+    width: calc(100% / var(--w));
+    height: 100%;
+    transform: rotateY(calc(90deg * var(--i))) translateZ(86px);
+}
+.box .bottom span:nth-child(1){
+    background-image: url(bottom.png);
+    background-color: #dbc49b;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.box .bottom span:nth-child(2){
+    transform: rotateY(calc(90deg * var(--i))) translateZ(608px);
+}
+.box .bottom span:nth-child(3){
+    transform: rotateY(calc(90deg * var(--i))) translateZ(86px);
+}
+@keyframes animate {
+    0% {
+        transform: rotateY(15deg) translateY(0px);
+    }
+    25% {
+        transform: rotateY(0deg) translateY(10px);
+    }
+    50% {
+        transform: rotateY(-15deg) translateY(20px);
+    }
+    75% {
+        transform: rotateY(0deg) translateY(-10px);
+    }
+    100% {
+        transform: rotateY(15deg) translateY(0px);
+    }
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock Gift</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="box">
+        <div class="top">
+            <div class="clock">
+                <span class="back"></span>
+                <div class="circle">
+                    <span style="--i:0"></span>
+                    <span style="--i:1"></span>
+                    <span style="--i:2"></span>
+                    <span style="--i:3"></span>
+                    <span style="--i:4"></span>
+                    <span style="--i:5"></span>
+                    <span style="--i:6"></span>
+                    <span style="--i:7"></span>
+                    <span style="--i:8"></span>
+                    <span style="--i:9"></span>
+                    <span style="--i:10"></span>
+                    <span style="--i:11"></span>
+                    <span class="hh"></span>
+                    <span class="mm"></span>
+                    <span class="ss"></span>
+                </div>
+                <span class="glass"></span>
+            </div>
+            <div class="container">
+                <span style="--i:0; --w:1;"></span>
+                <span style="--i:1; --w:2;"></span>
+                <span style="--i:2; --w:1;"></span>
+                <span style="--i:3; --w:2;"></span>
+            </div>
+        </div>
+        <div class="bottom">
+            <span style="--i:0; --w:1;"></span>
+            <span style="--i:1; --w:4;"></span>
+            <span style="--i:-1; --w:4;"></span>
+        </div>
+    </div>
+    <script src="vanilla-tilt.min.js"></script>
+    <script>
+        let hh = document.querySelector(".hh");
+        let mm = document.querySelector(".mm");
+        let ss = document.querySelector(".ss");
+        let deg = 6;
+
+        setInterval(()=>{
+            let time = new Date();
+            let hr = time.getHours() * 30;
+            let min = time.getMinutes() * deg;
+            let sec = time.getSeconds() * deg;
+
+            hh.style.transform = `rotateZ(${(hr)+(min/12)}deg)`;
+            mm.style.transform = `rotateZ(${min}deg)`;
+            ss.style.transform = `rotateZ(${sec}deg)`;
+        });
+
+        VanillaTilt.init(document.querySelectorAll(".box"), {
+            max: 5,
+            speed: 400,
+        });
+    </script>
+</body>
+</html>
